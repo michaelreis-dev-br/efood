@@ -1,4 +1,4 @@
-import logo from "../../assets/images/logo.jpg";
+import logo from "../../../assets/images/logo.jpg";
 import * as S from "./styles";
 
 const Header = () => (

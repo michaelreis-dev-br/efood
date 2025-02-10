@@ -23,5 +23,16 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: 'Roboto', sans-serif;
     list-style: none;
+
+    .container {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 24px 0 32px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
   }
 `;

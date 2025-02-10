@@ -1,9 +1,12 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { colors } from "../../../assets/styles";
+import { colors } from "../../../../assets/styles";
 
 export const Card = styled.div`
   background-color: #fff;
   border: 1px solid ${colors.primary};
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Image = styled.div`
@@ -22,6 +25,9 @@ export const ImageContainer = styled.div`
 
 export const CardContainer = styled.div`
   padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 `;
 
 export const TitleContainer = styled.div`
@@ -49,9 +55,10 @@ export const P = styled.p`
   color: ${colors.primary};
   font-size: 0.875rem;
   line-height: 22px;
+  flex-grow: 1;
 `;
 
-export const Button = styled.a`
+export const Button = styled(Link)`
   padding: 0.25rem 0.375rem;
   background-color: ${colors.primary};
   color: ${colors.tertiary};
@@ -59,7 +66,8 @@ export const Button = styled.a`
   cursor: pointer;
   font-weight: 700;
   font-size: 0.875rem;
-  display: inline-block;
+  width: fit-content;
+  text-decoration: none;
 `;
 
 export const Tag = styled.div`

@@ -1,5 +1,5 @@
-import * as S from "./styles";
 import { Star } from "lucide-react";
+import * as S from "./styles";
 
 const Card = ({
   id,
