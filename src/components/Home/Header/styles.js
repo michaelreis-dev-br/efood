@@ -1,20 +1,19 @@
 import styled from "styled-components";
-import BgHeader from "../../../assets/images/bg-header.jpg";
-import { colors } from "../../../assets/styles";
+import { COLORS, BG_IMG } from "../../../assets/styles";
 
 export const Header = styled.header`
   align-items: center;
-  background-image: url(${BgHeader});
+  background-image: url(${BG_IMG.HEADER});
   display: flex;
   flex-direction: column;
-  height: 360px;
+  height: 22.5rem;
   justify-content: space-between;
-  padding: 2.5rem 0;
-`;
+  padding: 2.5rem 1rem;
 
-export const H1 = styled.h1`
-  font-weight: 900;
-  font-size: 2.25rem;
-  color: ${colors.primary};
-  text-align: center;
+  h1 {
+    color: ${COLORS.PRIMARY};
+    font-size: 2.25rem;
+    font-weight: 900;
+    text-align: center;
+  }
 `;

@@ -1,42 +1,43 @@
 import styled from "styled-components";
-import { colors } from "../../assets/styles";
+import { COLORS } from "../../assets/styles";
 
 export const Footer = styled.footer`
-  background-color: ${colors.secondary};
-  height: 298px;
-  padding: 2.5rem 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-`;
+  background-color: ${COLORS.SECONDARY};
+  height: 18rem;
+  padding: 2.5rem 1rem;
 
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 32.5px;
-  justify-content: space-between;
-  align-items: center;
-`;
+  div {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    height: 100%;
 
-export const List = styled.ul`
-  display: flex;
-  gap: 0.5rem;
-`;
+    ul {
+      display: flex;
+      gap: 0.5rem;
 
-export const ListItem = styled.li``;
+      li {
+        a {
+          align-items: center;
+          background-color: ${COLORS.PRIMARY};
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          padding: 0.5rem;
 
-export const ListLink = styled.a`
-  background-color: ${colors.primary};
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.5rem;
-`;
+          svg {
+            color: ${COLORS.SECONDARY};
+          }
+        }
+      }
+    }
 
-export const P = styled.p`
-  color: ${colors.primary};
-  font-size: 10px;
-  text-align: center;
+    p {
+      color: ${COLORS.PRIMARY};
+      font-size: 0.625rem;
+      text-align: center;
+    }
+  }
 `;

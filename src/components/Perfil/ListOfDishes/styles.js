@@ -1,16 +1,20 @@
 import styled from "styled-components";
-import { colors } from "../../../assets/styles";
+import { COLORS } from "../../../assets/styles";
 
 export const Main = styled.main`
-  padding: 5rem 0 7.5rem;
-  background-color: ${colors.tertiary};
-`;
+  padding: 2.5rem 1rem;
+  background-color: ${COLORS.TERTIARY};
 
-export const Container = styled.div`
-  gap: 2rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin: 0 auto;
-  max-width: 1024px;
-  width: 100%;
+  .container {
+    gap: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0 auto;
+    max-width: 1024px;
+    width: 100%;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
 `;

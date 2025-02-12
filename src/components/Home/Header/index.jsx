@@ -1,14 +1,14 @@
-import logo from "../../../assets/images/logo.jpg";
+import Logo from "../../Logo";
 import * as S from "./styles";
 
 const Header = () => (
   <S.Header>
-    <img src={logo} alt="Efood" width={125} />
-    <S.H1>
+    <Logo />
+    <h1>
       Viva experiências gastronômicas
       <br />
       no conforto da sua casa
-    </S.H1>
+    </h1>
   </S.Header>
 );
 

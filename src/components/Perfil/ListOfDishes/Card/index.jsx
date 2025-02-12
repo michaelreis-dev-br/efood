@@ -1,12 +1,12 @@
 import * as S from "./styles";
 
-const Card = ({ id, name, image, description }) => {
+const Card = ({ name, image, description, showModal }) => {
   return (
-    <S.Card key={id}>
-      <S.Image style={{ backgroundImage: `url(${image})` }}></S.Image>
-      <S.H2>{name}</S.H2>
-      <S.P>{description}</S.P>
-      <S.Button>Adicionar ao carrinho</S.Button>
+    <S.Card>
+      <img src={image} />
+      <h2>{name}</h2>
+      <p>{description}</p>
+      <button onClick={showModal}>Mais detalhes</button>
     </S.Card>
   );
 };

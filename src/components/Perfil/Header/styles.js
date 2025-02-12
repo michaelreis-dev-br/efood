@@ -1,59 +1,68 @@
 import styled from "styled-components";
-import BgHeader from "../../../assets/images/bg-header.jpg";
-import BgBanner from "../../../assets/images/banners/bella-trattoria.jpg";
-import { colors } from "../../../assets/styles";
+import { COLORS, BG_IMG } from "../../../assets/styles";
 
 export const Header = styled.header`
-  background-image: url(${BgHeader});
+  background-image: url(${BG_IMG.HEADER});
   display: flex;
   flex-direction: column;
-`;
 
-export const Container = styled.div`
-  align-items: center;
-  display: grid;
-  height: 163px;
-  grid-template-columns: 1fr 1fr 1fr;
-  padding: 2.5rem 0;
-  width: 1024px;
-  margin: 0 auto;
-
-  img {
-    display: block;
+  .container {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    padding: 2.5rem 1rem;
+    width: 100%;
+    max-width: 1024px;
     margin: 0 auto;
+
+    .nav-item {
+      font-size: 18px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      width: fit-content;
+      gap: 0.5rem;
+      color: ${COLORS.PRIMARY};
+    }
+
+    .end {
+      justify-self: end;
+    }
+
+    img {
+      display: block;
+      margin: 0 auto;
+    }
   }
-`;
 
-export const P = styled.p`
-  font-weight: 900;
-  font-size: 1.125rem;
-  color: ${colors.primary};
-`;
+  .banner {
+    height: 280px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 
-export const Title = styled(P)`
-  text-align: start;
-`;
+    div {
+      width: 100%;
+      height: 100%;
+      max-width: 1024px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 2rem 1rem;
 
-export const Cart = styled(P)`
-  text-align: end;
-`;
+      h2 {
+        font-weight: 900;
+        font-size: 2rem;
+        color: #fff;
+      }
 
-export const Banner = styled.div`
-  height: 280px;
-  width: 100%;
-  background-image: url(${BgBanner});
-  background-repeat: no-repeat;
-  background-size: cover;
-`;
-
-export const H2 = styled.h2`
-  font-weight: 900;
-  font-size: 2rem;
-  color: #fff;
-`;
-
-export const H3 = styled.h3`
-  font-weight: 100;
-  font-size: 2rem;
-  color: #fff;
+      p {
+        font-weight: 100;
+        font-size: 2rem;
+        color: #fff;
+      }
+    }
+  }
 `;

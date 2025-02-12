@@ -1,28 +1,44 @@
-import { Container } from "../../../assets/styles";
+import { useState, useEffect } from "react";
+import Card from "./Cards";
 import * as S from "./styles";
-import Card from "./Card";
 
-import { restaurants } from "../../../assets/utils/restaurants";
+const ListOfRestaurants = () => {
+  const [restaurants, setRestaurants] = useState([]);
 
-const Main = () => {
+  useEffect(() => {
+    const fetchRestaurants = async () => {
+      try {
+        const response = await fetch(
+          "https://fake-api-tau.vercel.app/api/efood/restaurantes"
+        );
+        const data = await response.json();
+        setRestaurants(data);
+      } catch (error) {
+        alert("Erro ao buscar dados, tente novamente mais tarde.");
+      }
+    };
+
+    fetchRestaurants();
+  }, []);
+
   return (
-    <S.Main>
-      <Container>
+    <S.ListOfRestaurants>
+      <div className="container">
         {restaurants.map((restaurant) => (
           <Card
             key={restaurant.id}
-            name={restaurant.name}
-            image={restaurant.image}
-            rating={restaurant.rating}
-            path={restaurant.path}
-            description={restaurant.description}
-            featured={restaurant.featured}
-            type={restaurant.type}
+            id={restaurant.id}
+            titulo={restaurant.titulo}
+            capa={restaurant.capa}
+            avaliacao={restaurant.avaliacao}
+            descricao={restaurant.descricao}
+            destacado={restaurant.destacado}
+            tipo={restaurant.tipo}
           />
         ))}
-      </Container>
-    </S.Main>
+      </div>
+    </S.ListOfRestaurants>
   );
 };
 
-export default Main;
+export default ListOfRestaurants;
