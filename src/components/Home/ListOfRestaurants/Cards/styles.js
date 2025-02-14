@@ -74,7 +74,7 @@ export const Card = styled.div`
     background-color: ${COLORS.PRIMARY};
     border: none;
     color: ${COLORS.TERTIARY};
-    cursor: pointer;
+
     font-size: 0.875rem;
     font-weight: 700;
     padding: 0.25rem 0.375rem;

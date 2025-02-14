@@ -1,0 +1,16 @@
+import { configureStore } from "@reduxjs/toolkit";
+import cartReducer from "./reducers/cart";
+import modalReducer from "./reducers/modal";
+import api from "../services/api";
+
+const store = configureStore({
+  reducer: {
+    cart: cartReducer,
+    modal: modalReducer,
+    [api.reducerPath]: api.reducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(api.middleware),
+});
+
+export default store;

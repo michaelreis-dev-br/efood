@@ -1,33 +1,19 @@
-import { useState } from "react";
+import { useSelector } from "react-redux";
 import Card from "./Card";
 import Modal from "../../Modal";
 import * as S from "./styles";
 
 const ListOfDishes = ({ dishes }) => {
-  const [selectedDish, setSelectedDish] = useState(null);
-
-  const moreDetails = (dish) => {
-    setSelectedDish(dish);
-  };
-
-  const closeModal = () => {
-    setSelectedDish(null);
-  };
+  const { modalIsOpen, selectedDish } = useSelector((state) => state.modal);
 
   return (
     <S.Main>
       <div className="container">
         {dishes.map((dish) => (
-          <Card
-            key={dish.id}
-            name={dish.nome}
-            image={dish.foto}
-            description={dish.descricao}
-            showModal={() => moreDetails(dish)}
-          />
+          <Card key={dish.id} dish={dish} />
         ))}
       </div>
-      {selectedDish && <Modal dish={selectedDish} onClose={closeModal} />}
+      {modalIsOpen && selectedDish && <Modal />}
     </S.Main>
   );
 };

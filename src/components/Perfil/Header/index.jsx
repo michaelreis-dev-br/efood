@@ -1,32 +1,27 @@
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { openCart } from "../../../store/reducers/cart";
 import { Undo2, ShoppingCart } from "lucide-react";
 import Logo from "../../Logo";
 import * as S from "./styles.js";
 
 const Header = ({ restaurant }) => {
-  const mobile = true;
+  const dispatch = useDispatch();
+  const { items } = useSelector((state) => state.cart);
+
+  const showCart = () => {
+    dispatch(openCart());
+  };
 
   return (
     <S.Header>
       <div className="container">
         <Link to="/" title="Voltar" className="nav-item">
-          {mobile ? (
-            <Undo2 />
-          ) : (
-            <>
-              <Undo2 /> Restaurantes
-            </>
-          )}
+          <Undo2 />
         </Link>
         <Logo />
         <div className="nav-item end">
-          {mobile ? (
-            <>
-              0 <ShoppingCart />
-            </>
-          ) : (
-            <>0 produtos no carrinho</>
-          )}
+          {items.length} <ShoppingCart onClick={showCart} />
         </div>
       </div>
       <div

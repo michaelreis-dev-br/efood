@@ -23,6 +23,7 @@ export const Header = styled.header`
       width: fit-content;
       gap: 0.5rem;
       color: ${COLORS.PRIMARY};
+      cursor: pointer;
     }
 
     .end {

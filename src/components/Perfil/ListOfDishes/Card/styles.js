@@ -8,10 +8,10 @@ export const Card = styled.div`
   padding: 0.5rem;
 
   img {
-    margin-bottom: 0.5rem;
-    width: 100%;
     height: 167px;
+    margin-bottom: 0.5rem;
     object-fit: cover;
+    width: 100%;
   }
 
   h2 {
@@ -31,9 +31,9 @@ export const Card = styled.div`
     background-color: ${COLORS.SECONDARY};
     border: none;
     color: ${COLORS.PRIMARY};
+    cursor: pointer;
     font-size: 0.875rem;
     font-weight: 700;
     padding: 0.25rem 0.375rem;
-    cursor: pointer;
   }
 `;
