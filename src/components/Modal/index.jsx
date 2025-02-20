@@ -1,33 +1,29 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addItem, openCart } from "../../store/reducers/cart";
-import { closeModal } from "../../store/reducers/modal";
+import { add } from "../../store/reducers/cart";
+import { open } from "../../store/reducers/offcanvas";
+import { close } from "../../store/reducers/modal";
 import { formatPrice } from "../../assets/utils/price";
 import { X } from "lucide-react";
 import * as S from "./styles";
 
 const Modal = () => {
   const dispatch = useDispatch();
-  const { modalIsOpen, selectedDish: dish } = useSelector(
-    (state) => state.modal
-  );
+  const { isOpen, selectedDish: dish } = useSelector((state) => state.modal);
 
   const addToCart = () => {
-    dispatch(addItem(dish));
-    dispatch(openCart());
-    dispatch(closeModal());
+    dispatch(add(dish));
+    dispatch(open("Cart"));
+    dispatch(close());
   };
 
-  const handleCloseModal = () => {
-    dispatch(closeModal());
+  const closeModal = () => {
+    dispatch(close());
   };
 
   return (
-    <S.Modal
-      className={modalIsOpen ? "show-modal" : ""}
-      onClick={handleCloseModal}
-    >
+    <S.Modal className={isOpen ? "show-modal" : ""} onClick={closeModal}>
       <div className="modal-body" onClick={(e) => e.stopPropagation()}>
-        <X className="close-btn" onClick={handleCloseModal} />
+        <X className="close-btn" onClick={closeModal} />
         <img src={dish.foto} alt={dish.nome} />
         <div className="content">
           <div>
