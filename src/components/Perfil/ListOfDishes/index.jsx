@@ -4,7 +4,7 @@ import Modal from "../../Modal";
 import * as S from "./styles";
 
 const ListOfDishes = ({ dishes }) => {
-  const { modalIsOpen, selectedDish } = useSelector((state) => state.modal);
+  const { isOpen, selectedDish } = useSelector((state) => state.modal);
 
   return (
     <S.Main>
@@ -13,7 +13,7 @@ const ListOfDishes = ({ dishes }) => {
           <Card key={dish.id} dish={dish} />
         ))}
       </div>
-      {modalIsOpen && selectedDish && <Modal />}
+      {isOpen && selectedDish && <Modal />}
     </S.Main>
   );
 };

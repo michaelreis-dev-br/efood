@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { openCart } from "../../../store/reducers/cart";
+import { open } from "../../../store/reducers/offcanvas.js";
 import { Undo2, ShoppingCart } from "lucide-react";
 import Logo from "../../Logo";
-import * as S from "./styles.js";
+import * as S from "./styles";
 
 const Header = ({ restaurant }) => {
   const dispatch = useDispatch();
   const { items } = useSelector((state) => state.cart);
 
-  const showCart = () => {
-    dispatch(openCart());
+  const openCart = () => {
+    dispatch(open("Cart"));
   };
 
   return (
@@ -21,7 +21,7 @@ const Header = ({ restaurant }) => {
         </Link>
         <Logo />
         <div className="nav-item end">
-          {items.length} <ShoppingCart onClick={showCart} />
+          {items.length} <ShoppingCart onClick={openCart} />
         </div>
       </div>
       <div
